@@ -1,0 +1,11 @@
+{
+  "package_name": "environment_interface",
+  "non_idl_tuples": [
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:msg/Block.msg",
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:srv/BlockCreate.srv",
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:srv/BlockRemove.srv",
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:srv/BlockRemoveAll.srv",
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:srv/GetBlockColor.srv",
+    "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface:action/TaskCreator.action"
+  ]
+}
