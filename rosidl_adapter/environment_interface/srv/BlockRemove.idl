@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from environment_interface/srv/BlockRemove.srv
+// generated code does not contain a copyright notice
+
+#include "environment_interface/msg/Block.idl"
+
+module environment_interface {
+  module srv {
+    struct BlockRemove_Request {
+      environment_interface::msg::Block block;
+    };
+    struct BlockRemove_Response {
+      int64 output;
+    };
+  };
+};

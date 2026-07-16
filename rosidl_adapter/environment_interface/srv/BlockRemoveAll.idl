@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from environment_interface/srv/BlockRemoveAll.srv
+// generated code does not contain a copyright notice
+
+#include "moveit_msgs/msg/CollisionObject.idl"
+
+module environment_interface {
+  module srv {
+    struct BlockRemoveAll_Request {
+      sequence<moveit_msgs::msg::CollisionObject> blocks;
+    };
+    struct BlockRemoveAll_Response {
+      int64 output;
+    };
+  };
+};

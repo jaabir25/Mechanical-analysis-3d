@@ -1,0 +1,6 @@
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:msg/Block.idl
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:srv/BlockCreate.idl
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:srv/BlockRemove.idl
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:srv/BlockRemoveAll.idl
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:srv/GetBlockColor.idl
+/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface:action/TaskCreator.idl

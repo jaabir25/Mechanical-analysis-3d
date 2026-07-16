@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from environment_interface/srv/GetBlockColor.srv
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/ColorRGBA.idl"
+
+module environment_interface {
+  module srv {
+    struct GetBlockColor_Request {
+      int64 index;
+    };
+    struct GetBlockColor_Response {
+      std_msgs::msg::ColorRGBA color;
+    };
+  };
+};

@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from environment_interface/action/TaskCreator.action
+// generated code does not contain a copyright notice
+
+#include "environment_interface/msg/Block.idl"
+
+module environment_interface {
+  module action {
+    struct TaskCreator_Goal {
+      environment_interface::msg::Block block;
+
+      int32 operation_id;
+
+      string robot_name;
+
+      @default (value="ompl")
+      string solver;
+
+      @default (value="RRTConnectkConfigDefault")
+      string planner_id;
+    };
+    struct TaskCreator_Result {
+      string task_resposnse;
+    };
+    struct TaskCreator_Feedback {
+      string partial_output;
+    };
+  };
+};
