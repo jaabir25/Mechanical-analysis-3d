@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/mtc_tutorial/task_creator_action_server" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/mtc_tutorial/task_creator_action_client" "TARGETS" "task_creator_action_server" "task_creator_action_client" "DESTINATION" "lib/mtc_tutorial")
