@@ -1,7 +1,7 @@
 # generated from
 # ament_cmake_core/cmake/symlink_install/ament_cmake_symlink_install_uninstall_script.cmake.in
 
-set(install_manifest "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/symlink_install_manifest.txt")
+set(install_manifest "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/symlink_install_manifest.txt")
 if(NOT EXISTS "${install_manifest}")
   message(FATAL_ERROR "Cannot find symlink install manifest: ${install_manifest}")
 endif()

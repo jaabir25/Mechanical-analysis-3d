@@ -23,7 +23,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
 
   # make destination absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_builder/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_interface/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -128,7 +128,7 @@ function(ament_cmake_symlink_install_files cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_builder/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_interface/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -186,7 +186,7 @@ function(ament_cmake_symlink_install_programs cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_builder/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_interface/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -256,7 +256,7 @@ function(ament_cmake_symlink_install_targets)
 
     # make destination an absolute path and ensure that it exists
     if(NOT IS_ABSOLUTE "${destination}")
-      set(destination "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_builder/${destination}")
+      set(destination "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/install/environment_interface/${destination}")
     endif()
     if(NOT EXISTS "${destination}")
       file(MAKE_DIRECTORY "${destination}")
@@ -315,53 +315,185 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" DIRECTORY "launch" "DESTINATION" "share/environment_builder")
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/rosidl_interfaces/environment_interface" "DESTINATION" "share/ament_index/resource_index/rosidl_interfaces")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/rosidl_interfaces/environment_interface" "DESTINATION" "share/ament_index/resource_index/rosidl_interfaces")
 
-# install(DIRECTORY "meshes" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" DIRECTORY "meshes" "DESTINATION" "share/environment_builder")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.h")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.h")
 
-# install("TARGETS" "block_services" "dummy_client" "block_cleaner" "world_builder" "world_builder_simple" "assembly_plan_visualizer" "DESTINATION" "lib/environment_builder")
-include("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+# install(FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/environment_interface/environment")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/environment_builder" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/environment_builder" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/library_path.dsv" "DESTINATION" "share/environment_interface/environment")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/environment_builder" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/environment_builder" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_fastrtps_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN_EXCLUDE" "*.cpp")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_fastrtps_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN_EXCLUDE" "*.cpp")
 
-# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/environment_builder/environment")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/environment_builder/environment")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_introspection_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.h")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_introspection_c/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.h")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/environment_builder/environment")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/environment_builder/environment")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.hpp")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.hpp")
 
-# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/environment_builder/environment")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/environment_builder/environment")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_fastrtps_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN_EXCLUDE" "*.cpp")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_fastrtps_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN_EXCLUDE" "*.cpp")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/environment_builder/environment")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/environment_builder/environment")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_introspection_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.hpp")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_typesupport_introspection_cpp/environment_interface/" "DESTINATION" "include/environment_interface/environment_interface" "PATTERN" "*.hpp")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/environment_builder")
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/pythonpath.sh" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/pythonpath.sh" "DESTINATION" "share/environment_interface/environment")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/environment_builder")
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/pythonpath.dsv" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/pythonpath.dsv" "DESTINATION" "share/environment_interface/environment")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/environment_builder")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_python/environment_interface/environment_interface.egg-info/" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface-0.0.0-py3.10.egg-info")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_python/environment_interface/environment_interface.egg-info/" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface-0.0.0-py3.10.egg-info")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/environment_builder")
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_py/environment_interface/" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_py/environment_interface/" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/environment_builder")
+# install("TARGETS" "environment_interface__rosidl_typesupport_fastrtps_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface")
+include("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/packages/environment_builder" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_index/share/ament_index/resource_index/packages/environment_builder" "DESTINATION" "share/ament_index/resource_index/packages")
+# install("TARGETS" "environment_interface__rosidl_typesupport_introspection_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface")
+include("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_core/environment_builderConfig.cmake" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_core/environment_builderConfig-version.cmake" "DESTINATION" "share/environment_builder/cmake")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_core/environment_builderConfig.cmake" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_builder/ament_cmake_core/environment_builderConfig-version.cmake" "DESTINATION" "share/environment_builder/cmake")
+# install("TARGETS" "environment_interface__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/environment_interface")
+include("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder/package.xml" "DESTINATION" "share/environment_builder")
-ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_builder/package.xml" "DESTINATION" "share/environment_builder")
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/rust_packages/environment_interface" "DESTINATION" "share/ament_index/resource_index/rust_packages")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/rust_packages/environment_interface" "DESTINATION" "share/ament_index/resource_index/rust_packages")
+
+# install(DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_rs/environment_interface/rust" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_generator_rs/environment_interface/rust" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/msg/Block.idl" "DESTINATION" "share/environment_interface/msg")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/msg/Block.idl" "DESTINATION" "share/environment_interface/msg")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockCreate.idl" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockCreate.idl" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockRemove.idl" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockRemove.idl" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockRemoveAll.idl" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/BlockRemoveAll.idl" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/GetBlockColor.idl" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/srv/GetBlockColor.idl" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/action/TaskCreator.idl" "DESTINATION" "share/environment_interface/action")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_adapter/environment_interface/action/TaskCreator.idl" "DESTINATION" "share/environment_interface/action")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/msg/Block.msg" "DESTINATION" "share/environment_interface/msg")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/msg/Block.msg" "DESTINATION" "share/environment_interface/msg")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockCreate.srv" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockCreate.srv" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockCreate_Request.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockCreate_Request.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockCreate_Response.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockCreate_Response.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockRemove.srv" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockRemove.srv" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemove_Request.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemove_Request.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemove_Response.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemove_Response.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockRemoveAll.srv" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/BlockRemoveAll.srv" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemoveAll_Request.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemoveAll_Request.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemoveAll_Response.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/BlockRemoveAll_Response.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/GetBlockColor.srv" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/srv/GetBlockColor.srv" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/GetBlockColor_Request.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/GetBlockColor_Request.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/GetBlockColor_Response.msg" "DESTINATION" "share/environment_interface/srv")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/srv/GetBlockColor_Response.msg" "DESTINATION" "share/environment_interface/srv")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/action/TaskCreator.action" "DESTINATION" "share/environment_interface/action")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/action/TaskCreator.action" "DESTINATION" "share/environment_interface/action")
+
+# install("TARGETS" "DESTINATION" "lib/environment_interface")
+include("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_symlink_install_targets_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install(DIRECTORY "include/environment_interface" "DESTINATION" "include")
+ament_cmake_symlink_install_directory("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" DIRECTORY "include/environment_interface" "DESTINATION" "include")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/environment_interface" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/environment_interface" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/environment_interface" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/environment_interface" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+
+# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/environment_interface/environment")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/environment_interface/environment")
+
+# install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/environment_interface/environment")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/environment_interface/environment")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/environment_interface/environment")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/environment_interface")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/packages/environment_interface" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_index/share/ament_index/resource_index/packages/environment_interface" "DESTINATION" "share/ament_index/resource_index/packages")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_core/environment_interfaceConfig.cmake" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_core/environment_interfaceConfig-version.cmake" "DESTINATION" "share/environment_interface/cmake")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_core/environment_interfaceConfig.cmake" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/environment_interface/ament_cmake_core/environment_interfaceConfig-version.cmake" "DESTINATION" "share/environment_interface/cmake")
+
+# install(FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/package.xml" "DESTINATION" "share/environment_interface")
+ament_cmake_symlink_install_files("/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface" FILES "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/src/environment_interface/package.xml" "DESTINATION" "share/environment_interface")
