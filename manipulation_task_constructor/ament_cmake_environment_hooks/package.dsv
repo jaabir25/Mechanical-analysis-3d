@@ -1,0 +1,4 @@
+source;share/manipulation_task_constructor/local_setup.bash
+source;share/manipulation_task_constructor/local_setup.dsv
+source;share/manipulation_task_constructor/local_setup.sh
+source;share/manipulation_task_constructor/local_setup.zsh

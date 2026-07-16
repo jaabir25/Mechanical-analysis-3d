@@ -1,0 +1,2 @@
+source;share/manipulation_task_constructor/environment/ament_prefix_path.sh
+source;share/manipulation_task_constructor/environment/path.sh
