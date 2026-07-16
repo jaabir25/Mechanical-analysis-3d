@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/robot_movement_tester/joint_states_reproducer" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/robot_movement_tester/collision_avoid_pose_commander" "TARGETS" "joint_states_reproducer" "collision_avoid_pose_commander" "DESTINATION" "lib/robot_movement_tester")
