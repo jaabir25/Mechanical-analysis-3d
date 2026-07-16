@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/maeda/Desktop/Mechanical_Analysis/ROS2_ws/build/bag_recorder_nodes/simple_bag_recorder" "TARGETS" "simple_bag_recorder" "DESTINATION" "lib/bag_recorder_nodes")
